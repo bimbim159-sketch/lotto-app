@@ -100,6 +100,95 @@ main {
   font-size: 0.8rem;
   color: var(--text-sub);
   margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.hint em {
+  font-style: normal;
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+/* 자동 분석 */
+.data-status {
+  font-size: 0.75rem;
+  color: var(--text-sub);
+}
+
+.analysis-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.analysis-row:last-child {
+  border-bottom: none;
+}
+
+.analysis-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-sub);
+  width: 108px;
+  flex-shrink: 0;
+  line-height: 1.3;
+}
+
+.analysis-label small {
+  display: block;
+  font-weight: 400;
+  font-size: 0.68rem;
+  color: #9aa1ab;
+}
+
+.analysis-value {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.analysis-value .none {
+  color: #9aa1ab;
+  font-size: 0.8rem;
+}
+
+.ball.mini {
+  width: 26px;
+  height: 26px;
+  font-size: 0.72rem;
+  animation: none;
+}
+
+.pool-details {
+  margin-top: 10px;
+}
+
+.pool-details summary {
+  font-size: 0.8rem;
+  color: var(--primary-dark);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.pool-list {
+  list-style: none;
+  margin-top: 8px;
+}
+
+.pool-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.pool-reason {
+  font-size: 0.78rem;
+  color: var(--text-sub);
 }
 
 /* 번호판 */
@@ -132,6 +221,28 @@ main {
   border-color: var(--excluded);
   color: #6b7280;
   text-decoration: line-through;
+}
+
+.num-btn.excluded.auto {
+  background: #fde8e8;
+  border-color: #f8b4b4;
+  color: #c81e1e;
+}
+
+.num-btn.cold {
+  position: relative;
+}
+
+.num-btn.cold::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #3b82f6;
 }
 
 /* 버튼 */
@@ -209,11 +320,37 @@ main {
 }
 
 .result-label {
-  font-size: 0.8rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  color: var(--text-sub);
-  width: 20px;
+  color: var(--primary-dark);
+  background: #ecfdf3;
+  border: 1px solid #bbe7cd;
+  border-radius: 6px;
+  padding: 3px 4px;
+  width: 56px;
+  text-align: center;
   flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.result-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.result-meta {
+  font-size: 0.7rem;
+  color: #9aa1ab;
+}
+
+.btn-row {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-row .btn {
+  flex: 1;
 }
 
 .balls {

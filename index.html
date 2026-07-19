@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="제외수를 빼고 나머지 번호 중에서 랜덤으로 로또 번호를 추천해주는 앱" />
+  <meta name="description" content="당첨 이력 분석으로 제외수를 자동 선정하고, 필터를 통과한 조합에서만 랜덤으로 로또 번호를 추천해주는 앱" />
   <meta name="theme-color" content="#1a1a2e" />
   <title>로또 번호 추천</title>
   <link rel="icon" href="icon.svg" type="image/svg+xml" />
@@ -22,7 +22,7 @@
 <body>
   <header class="app-header">
     <h1>🍀 로또 번호 추천</h1>
-    <p class="subtitle">제외수를 선택하면 나머지 번호로만 조합해 드려요</p>
+    <p class="subtitle">당첨 이력 분석 → 제외수 자동 선정 → 필터 통과 조합만 추첨</p>
   </header>
 
   <main>
@@ -42,15 +42,36 @@
       <span class="ad-placeholder">광고 영역 (320×50 / 반응형)</span>
     </div>
 
-    <!-- 제외수 선택 -->
+    <!-- 자동 분석 -->
     <section class="card">
       <div class="section-title">
-        <h2>제외수 선택</h2>
+        <h2>자동 분석</h2>
+        <span class="data-status" id="data-status">준비 중…</span>
+      </div>
+      <div id="analysis-body">
+        <p class="hint">최근 당첨 이력을 분석하는 중입니다…</p>
+      </div>
+      <details class="pool-details">
+        <summary>추천 풀 자세히 보기</summary>
+        <ul class="pool-list" id="pool-list"></ul>
+      </details>
+    </section>
+
+    <!-- 제외수 -->
+    <section class="card">
+      <div class="section-title">
+        <h2>제외수</h2>
         <span class="excluded-count" id="excluded-count">0개 제외</span>
       </div>
-      <p class="hint">나오지 않을 것 같은 번호를 눌러 제외하세요. (최대 39개)</p>
+      <p class="hint">
+        자동 분석이 <em>과열 후 냉각</em> 번호를 제외수로 선정했어요. 탭해서 직접 수정할 수
+        있습니다. (전략상 5~8개 권장 · 점 표시는 장기 미출수라 제외 불가)
+      </p>
       <div class="number-grid" id="number-grid"></div>
-      <button class="btn btn-ghost" id="clear-btn">제외수 초기화</button>
+      <div class="btn-row">
+        <button class="btn btn-ghost" id="auto-btn">자동 제외수 적용</button>
+        <button class="btn btn-ghost" id="clear-btn">모두 해제</button>
+      </div>
     </section>
 
     <!-- 게임 수 선택 + 추첨 -->
@@ -58,6 +79,11 @@
       <div class="section-title">
         <h2>번호 추첨</h2>
       </div>
+      <p class="hint">
+        제외수를 뺀 조합에 필터 스택(총합 100~175 · 홀짝/고저 2:4~4:2 · AC 7+ · 동끝수 2개
+        이하 · 연번 2연속 이하 · 32~45 두 개 이상)을 적용하고, 통과한 조합에서만 균등
+        랜덤으로 추첨합니다.
+      </p>
       <div class="game-count">
         <label for="game-count-select">게임 수</label>
         <select id="game-count-select">
@@ -65,7 +91,7 @@
           <option value="2">2게임</option>
           <option value="3">3게임</option>
           <option value="4">4게임</option>
-          <option value="5" selected>5게임</option>
+          <option value="5" selected>5게임 (풀3+ ×3 · 미출포함 ×1 · 자동 ×1)</option>
         </select>
       </div>
       <button class="btn btn-primary" id="draw-btn">🎱 번호 뽑기</button>
@@ -87,11 +113,15 @@
   </main>
 
   <footer class="app-footer">
-    <p>본 앱의 추천 번호는 무작위 추첨 결과이며 당첨을 보장하지 않습니다.</p>
+    <p>
+      조합당 1등 확률은 여전히 1/8,145,060입니다. 이 앱은 정답 보존율을 지키며 조합 풀을
+      줄이고, 당첨 시 나눠 갖지 않을 조합을 고르는 것까지만 도와줍니다.
+    </p>
   </footer>
 
   <div class="toast" id="toast" role="status"></div>
 
+  <script src="logic.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
