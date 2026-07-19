@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+lotto_all.json
+보존율_로그.csv
