@@ -1,5 +1,8 @@
 # 🍀 로또 번호 추천 앱
 
+**▶ 사용하기: https://bimbim159-sketch.github.io/lotto-app/**
+(브랜치에 푸시하면 GitHub Actions가 자동으로 재배포합니다)
+
 `제외수_v2.py`의 전략을 그대로 이식한 모바일 우선 웹앱입니다.
 당첨 이력을 분석해 **제외수를 자동 선정**하고, **필터 스택을 통과한(=제외 조합을 걸러낸) 조합에서만** 균등 랜덤으로 번호를 추첨합니다.
 
@@ -38,8 +41,11 @@ python3 -m http.server 8000
 # 브라우저에서 http://localhost:8000 접속
 ```
 
-배포는 GitHub Pages, Netlify, Vercel 등 아무 정적 호스팅이면 됩니다.
-GitHub Pages 기준: 저장소 **Settings → Pages → Branch: main** 선택하면 끝.
+### 배포 (설정 완료됨)
+
+GitHub Pages + GitHub Actions로 배포되어 있습니다 (`.github/workflows/deploy.yml`).
+`claude/lottery-number-recommender-82raaj` 또는 `main` 브랜치에 푸시하면 자동으로 재배포됩니다.
+최초 1회 설정(완료됨): 레포 public 전환 + Settings → Pages → Source: **GitHub Actions**.
 
 ## 광고 수익화 가이드
 
