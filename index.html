@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="제외수를 빼고 나머지 번호 중에서 랜덤으로 로또 번호를 추천해주는 앱" />
+  <meta name="theme-color" content="#1a1a2e" />
+  <title>로또 번호 추천</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!--
+    ▼ 구글 애드센스(AdSense) 사용 시:
+    1. https://adsense.google.com 에서 계정 승인 후
+    2. 아래 주석을 해제하고 ca-pub-XXXXXXXXXXXXXXXX 를 본인 게시자 ID로 교체하세요.
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+    crossorigin="anonymous"></script>
+  -->
+</head>
+<body>
+  <header class="app-header">
+    <h1>🍀 로또 번호 추천</h1>
+    <p class="subtitle">제외수를 선택하면 나머지 번호로만 조합해 드려요</p>
+  </header>
+
+  <main>
+    <!-- 상단 광고 배너 -->
+    <div class="ad-banner" id="ad-top">
+      <!--
+        ▼ 애드센스 승인 후 아래 주석을 해제하고 값을 교체하세요.
+
+      <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+        data-ad-slot="1234567890"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      -->
+      <span class="ad-placeholder">광고 영역 (320×50 / 반응형)</span>
+    </div>
+
+    <!-- 제외수 선택 -->
+    <section class="card">
+      <div class="section-title">
+        <h2>제외수 선택</h2>
+        <span class="excluded-count" id="excluded-count">0개 제외</span>
+      </div>
+      <p class="hint">나오지 않을 것 같은 번호를 눌러 제외하세요. (최대 39개)</p>
+      <div class="number-grid" id="number-grid"></div>
+      <button class="btn btn-ghost" id="clear-btn">제외수 초기화</button>
+    </section>
+
+    <!-- 게임 수 선택 + 추첨 -->
+    <section class="card">
+      <div class="section-title">
+        <h2>번호 추첨</h2>
+      </div>
+      <div class="game-count">
+        <label for="game-count-select">게임 수</label>
+        <select id="game-count-select">
+          <option value="1">1게임</option>
+          <option value="2">2게임</option>
+          <option value="3">3게임</option>
+          <option value="4">4게임</option>
+          <option value="5" selected>5게임</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" id="draw-btn">🎱 번호 뽑기</button>
+    </section>
+
+    <!-- 결과 -->
+    <section class="card" id="result-card" hidden>
+      <div class="section-title">
+        <h2>추천 번호</h2>
+        <button class="btn-small" id="copy-btn">복사</button>
+      </div>
+      <div id="results"></div>
+    </section>
+
+    <!-- 하단 광고 배너 -->
+    <div class="ad-banner" id="ad-bottom">
+      <span class="ad-placeholder">광고 영역 (320×100 / 반응형)</span>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <p>본 앱의 추천 번호는 무작위 추첨 결과이며 당첨을 보장하지 않습니다.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

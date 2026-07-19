@@ -1,0 +1,18 @@
+{
+  "name": "로또 번호 추천",
+  "short_name": "로또추천",
+  "description": "제외수를 빼고 나머지 번호 중에서 랜덤으로 로또 번호를 추천해주는 앱",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#1a1a2e",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
