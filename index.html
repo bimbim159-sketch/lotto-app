@@ -74,16 +74,28 @@
       </div>
     </section>
 
+    <!-- 필터 조건 -->
+    <section class="card">
+      <div class="section-title">
+        <h2>필터 조건</h2>
+        <span class="data-status" id="filter-count"></span>
+      </div>
+      <p class="hint">
+        제외수를 뺀 조합 중, 켜 둔 조건을 <em>모두 통과한 조합에서만</em> 추첨합니다.
+        끄면 그 조건은 검사하지 않아요.
+      </p>
+      <div class="filter-list" id="filter-list"></div>
+      <div class="btn-row">
+        <button class="btn btn-ghost" id="filter-all-btn">모두 켜기</button>
+        <button class="btn btn-ghost" id="filter-none-btn">모두 끄기</button>
+      </div>
+    </section>
+
     <!-- 게임 수 선택 + 추첨 -->
     <section class="card">
       <div class="section-title">
         <h2>번호 추첨</h2>
       </div>
-      <p class="hint">
-        제외수를 뺀 조합에 필터 스택(총합 100~175 · 홀짝/고저 2:4~4:2 · AC 7+ · 동끝수 2개
-        이하 · 연번 2연속 이하 · 32~45 두 개 이상)을 적용하고, 통과한 조합에서만 균등
-        랜덤으로 추첨합니다.
-      </p>
       <div class="game-count">
         <label for="game-count-select">게임 수</label>
         <select id="game-count-select">

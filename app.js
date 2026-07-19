@@ -8,6 +8,7 @@
     "https://raw.githubusercontent.com/smok95/lotto/master/results/all.json",
   ];
   const CACHE_KEY = "lotto-data-v2";
+  const FILTER_KEY = "lotto-filters-v1";
   const TOTAL_NUMBERS = 45;
 
   const grid = document.getElementById("number-grid");
@@ -23,12 +24,73 @@
   const dataStatusEl = document.getElementById("data-status");
   const analysisBody = document.getElementById("analysis-body");
   const poolListEl = document.getElementById("pool-list");
+  const filterListEl = document.getElementById("filter-list");
+  const filterCountEl = document.getElementById("filter-count");
+  const filterAllBtn = document.getElementById("filter-all-btn");
+  const filterNoneBtn = document.getElementById("filter-none-btn");
 
   let rows = null;      // 당첨 이력
   let info = null;      // analyze() 결과
   let excluded = new Set();
+  let enabledFilters = loadFilters();
   let lastResults = [];
   let toastTimer = null;
+
+  // ----------------------------------------------------------
+  // 필터 조건 on/off
+  // ----------------------------------------------------------
+  function loadFilters() {
+    const all = L.FILTER_STACK.map((f) => f.id);
+    try {
+      const saved = JSON.parse(localStorage.getItem(FILTER_KEY));
+      if (Array.isArray(saved)) {
+        return new Set(saved.filter((id) => all.includes(id)));
+      }
+    } catch (e) { /* 손상된 저장값 무시 */ }
+    return new Set(all); // 기본: 전체 켜짐
+  }
+
+  function saveFilters() {
+    localStorage.setItem(FILTER_KEY, JSON.stringify([...enabledFilters]));
+  }
+
+  function renderFilters() {
+    filterListEl.innerHTML = "";
+    for (const f of L.FILTER_STACK) {
+      const label = document.createElement("label");
+      label.className = "filter-item";
+
+      const cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.checked = enabledFilters.has(f.id);
+      cb.addEventListener("change", () => {
+        if (cb.checked) enabledFilters.add(f.id);
+        else enabledFilters.delete(f.id);
+        saveFilters();
+        updateFilterCount();
+      });
+
+      const body = document.createElement("span");
+      body.className = "filter-text";
+      body.innerHTML = `<strong>${f.name}</strong><small>${f.desc}</small>`;
+
+      label.appendChild(cb);
+      label.appendChild(body);
+      filterListEl.appendChild(label);
+    }
+    updateFilterCount();
+  }
+
+  function updateFilterCount() {
+    filterCountEl.textContent = `${enabledFilters.size}/${L.FILTER_STACK.length}개 적용`;
+  }
+
+  function setAllFilters(on) {
+    enabledFilters = on ? new Set(L.FILTER_STACK.map((f) => f.id)) : new Set();
+    saveFilters();
+    renderFilters();
+    showToast(on ? "모든 조건을 켰습니다" : "모든 조건을 껐습니다 — 순수 랜덤 추첨");
+  }
 
   // ----------------------------------------------------------
   // 데이터 로드: 캐시 즉시 반영 → 온라인 갱신
@@ -212,7 +274,7 @@
     }
 
     const gameCount = parseInt(gameCountSelect.value, 10);
-    const games = L.pickGames(allowed, info, gameCount);
+    const games = L.pickGames(allowed, info, gameCount, enabledFilters);
 
     lastResults = games;
     resultsEl.innerHTML = "";
@@ -282,7 +344,10 @@
   clearBtn.addEventListener("click", handleClear);
   drawBtn.addEventListener("click", handleDraw);
   copyBtn.addEventListener("click", handleCopy);
+  filterAllBtn.addEventListener("click", () => setAllFilters(true));
+  filterNoneBtn.addEventListener("click", () => setAllFilters(false));
 
+  renderFilters();
   renderGrid();
   initData();
 })();

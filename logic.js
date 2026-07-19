@@ -36,27 +36,40 @@
     return best;
   }
 
-  const FILTER_STACK = [
-    { name: "총합 100~175", fn: (c) => { const s = c.reduce((a, b) => a + b, 0); return s >= 100 && s <= 175; } },
-    { name: "홀짝 2:4~4:2", fn: (c) => { const odd = c.filter((n) => n % 2).length; return odd >= 2 && odd <= 4; } },
-    { name: "고저 2:4~4:2", fn: (c) => { const low = c.filter((n) => n <= 22).length; return low >= 2 && low <= 4; } },
-    { name: "AC값 7 이상", fn: (c) => acValue(c) >= 7 },
-    { name: "동끝수 2개 이하", fn: (c) => {
-      const cnt = new Array(10).fill(0);
-      let max = 0;
-      for (const n of c) { const t = ++cnt[n % 10]; if (t > max) max = t; }
-      return max <= 2;
-    } },
-    { name: "연번 2연속 이하", fn: (c) => maxConsecutive(c) <= 2 },
-  ];
-
-  function passesStack(combo) {
-    return FILTER_STACK.every((f) => f.fn(combo));
-  }
-
   // 비인기 조합 필터: 32~45 최소 2개 (생일수 몰빵 배제)
   function unpopularOk(combo) {
     return combo.filter((n) => n >= 32).length >= 2;
+  }
+
+  const FILTER_STACK = [
+    { id: "sum", name: "총합 100~175", desc: "여섯 수의 합이 역대 당첨 번호가 몰리는 구간",
+      fn: (c) => { const s = c.reduce((a, b) => a + b, 0); return s >= 100 && s <= 175; } },
+    { id: "oddeven", name: "홀짝 2:4~4:2", desc: "홀수·짝수가 한쪽으로 몰리지 않게",
+      fn: (c) => { const odd = c.filter((n) => n % 2).length; return odd >= 2 && odd <= 4; } },
+    { id: "lowhigh", name: "고저 2:4~4:2", desc: "저구간(1~22)·고구간(23~45) 균형",
+      fn: (c) => { const low = c.filter((n) => n <= 22).length; return low >= 2 && low <= 4; } },
+    { id: "ac", name: "AC값 7 이상", desc: "번호 간격이 단조롭지 않은 조합만",
+      fn: (c) => acValue(c) >= 7 },
+    { id: "lastdigit", name: "동끝수 2개 이하", desc: "끝자리가 같은 번호는 최대 2개",
+      fn: (c) => {
+        const cnt = new Array(10).fill(0);
+        let max = 0;
+        for (const n of c) { const t = ++cnt[n % 10]; if (t > max) max = t; }
+        return max <= 2;
+      } },
+    { id: "consec", name: "연번 2연속 이하", desc: "3개 이상 연속되는 번호 배제",
+      fn: (c) => maxConsecutive(c) <= 2 },
+    { id: "unpopular", name: "32~45 두 개 이상", desc: "생일수(1~31) 몰빵 배제 — 당첨 시 나눠 갖지 않을 조합",
+      fn: unpopularOk },
+  ];
+
+  // enabled: 활성 필터 id의 Set. 생략하면 전체 적용.
+  function passesStack(combo, enabled) {
+    for (const f of FILTER_STACK) {
+      if (enabled && !enabled.has(f.id)) continue;
+      if (!f.fn(combo)) return false;
+    }
+    return true;
   }
 
   // ----------------------------------------------------------
@@ -212,7 +225,7 @@
   // 게임 생성: 가설 분산 (풀3+ / 미출포함 / 자동)
   // 리젝션 샘플링 = 조건을 만족하는 전체 조합에서 균등 추첨과 동일
   // ----------------------------------------------------------
-  function pickGames(allowed, info, count) {
+  function pickGames(allowed, info, count, enabled) {
     const games = [];
     const used = new Set();
 
@@ -229,7 +242,7 @@
         for (let t = 0; t < MAX_TRIES; t++) {
           const c = sampleCombo(allowed);
           if (pred && !pred(c)) continue;
-          if (!passesStack(c) || !unpopularOk(c)) continue;
+          if (!passesStack(c, enabled)) continue;
           const key = c.join(",");
           if (used.has(key)) continue;
           used.add(key);

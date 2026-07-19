@@ -191,6 +191,55 @@ main {
   color: var(--text-sub);
 }
 
+/* 필터 조건 */
+.filter-list {
+  margin-bottom: 12px;
+}
+
+.filter-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.filter-item:last-child {
+  border-bottom: none;
+}
+
+.filter-item input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--primary);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.filter-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.filter-text strong {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.filter-text small {
+  font-size: 0.74rem;
+  color: var(--text-sub);
+}
+
+.filter-item input:not(:checked) + .filter-text strong {
+  color: #9aa1ab;
+  font-weight: 500;
+}
+
 /* 번호판 */
 .number-grid {
   display: grid;
