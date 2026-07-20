@@ -10,14 +10,9 @@
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="style.css" />
 
-  <!--
-    ▼ 구글 애드센스(AdSense) 사용 시:
-    1. https://adsense.google.com 에서 계정 승인 후
-    2. 아래 주석을 해제하고 ca-pub-XXXXXXXXXXXXXXXX 를 본인 게시자 ID로 교체하세요.
-
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+  <!-- 구글 애드센스: 사이트 소유 확인 + 광고 로더 -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2843757027982749"
     crossorigin="anonymous"></script>
-  -->
 </head>
 <body>
   <header class="app-header">
@@ -29,11 +24,12 @@
     <!-- 상단 광고 배너 -->
     <div class="ad-banner" id="ad-top">
       <!--
-        ▼ 애드센스 승인 후 아래 주석을 해제하고 값을 교체하세요.
+        ▼ 애드센스 승인 후: 광고 단위를 만들고 아래 주석을 해제한 뒤
+          data-ad-slot 값을 발급받은 슬롯 ID로 교체하세요.
 
       <ins class="adsbygoogle"
         style="display:block"
-        data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+        data-ad-client="ca-pub-2843757027982749"
         data-ad-slot="1234567890"
         data-ad-format="auto"
         data-full-width-responsive="true"></ins>
@@ -129,6 +125,12 @@
       조합당 1등 확률은 여전히 1/8,145,060입니다. 이 앱은 정답 보존율을 지키며 조합 풀을
       줄이고, 당첨 시 나눠 갖지 않을 조합을 고르는 것까지만 도와줍니다.
     </p>
+    <nav class="site-nav">
+      <a href="./">홈</a>
+      <a href="guide.html">로또 가이드</a>
+      <a href="strategy.html">전략 설명</a>
+      <a href="privacy.html">개인정보처리방침</a>
+    </nav>
   </footer>
 
   <div class="toast" id="toast" role="status"></div>
