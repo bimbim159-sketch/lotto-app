@@ -22,11 +22,28 @@
   </header>
 
   <main>
-    <!-- 상단 광고 배너 -->
-    <div class="ad-banner" id="ad-top">
+    <!-- 소개 (사이트 설명) -->
+    <section class="card">
+      <h2 style="font-size:1.05rem;margin-bottom:8px;">당첨 이력으로 번호를 고르는 도구</h2>
+      <p class="hint" style="margin-bottom:8px;">
+        이 앱은 로또 6/45의 역대 당첨 번호를 분석해 <em>제외수</em>를 자동으로 선정하고,
+        총합·홀짝·고저·AC값 등 <em>필터를 모두 통과한 조합에서만</em> 번호를 추천합니다.
+        설치나 회원가입 없이 바로 사용할 수 있어요.
+      </p>
+      <p class="hint" style="margin-bottom:0;">
+        조합당 1등 확률(1/8,145,060)은 어떤 방법으로도 바뀌지 않습니다. 이 도구는 확률을
+        높인다고 과장하는 대신, 역대 당첨이 몰린 범위로 후보를 좁히고 사람들이 잘 안 고르는
+        조합을 섞어 <em>당첨 시 나눠 갖지 않을 가능성</em>을 높이는 데 집중합니다. 원리는
+        <a href="strategy.html">전략 설명</a>, 실제 분포는 <a href="stats.html">당첨 통계</a>에서
+        확인하세요.
+      </p>
+    </section>
+
+    <!-- 상단 광고 배너 (애드센스 승인 후 노출) -->
+    <div class="ad-banner" id="ad-top" hidden>
       <!--
-        ▼ 애드센스 승인 후: 광고 단위를 만들고 아래 주석을 해제한 뒤
-          data-ad-slot 값을 발급받은 슬롯 ID로 교체하세요.
+        ▼ 애드센스 승인 후: hidden 속성을 제거하고, 광고 단위를 만든 뒤 아래 주석을
+          해제하고 data-ad-slot 값을 발급받은 슬롯 ID로 교체하세요.
 
       <ins class="adsbygoogle"
         style="display:block"
@@ -115,8 +132,24 @@
       <div id="results"></div>
     </section>
 
-    <!-- 하단 광고 배너 -->
-    <div class="ad-banner" id="ad-bottom">
+    <!-- 더 알아보기 -->
+    <section class="card">
+      <h2 style="font-size:1.05rem;margin-bottom:8px;">로또, 더 알아보기</h2>
+      <p class="hint" style="margin-bottom:8px;">
+        번호를 뽑기 전에 로또가 어떻게 돌아가는지 알아두면 도움이 됩니다. 이 사이트에는
+        아래와 같은 읽을거리가 준비되어 있습니다.
+      </p>
+      <ul class="hint" style="padding-left:18px;margin-bottom:0;line-height:1.9;">
+        <li><a href="guide.html">로또 6/45 완전 가이드</a> — 규칙, 등수별 확률, 세금, 수령 방법</li>
+        <li><a href="stats.html">당첨 번호 통계</a> — 역대 전체 회차의 번호·합계·홀짝 분포</li>
+        <li><a href="strategy.html">전략 설명</a> — 제외수와 필터가 동작하는 원리</li>
+        <li><a href="faq.html">자주 묻는 질문</a> — 확률·세금·번호 분석에 대한 오해 정리</li>
+        <li><a href="about.html">소개 · 문의</a> — 이 사이트의 원칙과 데이터 출처</li>
+      </ul>
+    </section>
+
+    <!-- 하단 광고 배너 (애드센스 승인 후 노출) -->
+    <div class="ad-banner" id="ad-bottom" hidden>
       <span class="ad-placeholder">광고 영역 (320×100 / 반응형)</span>
     </div>
   </main>
@@ -129,7 +162,10 @@
     <nav class="site-nav">
       <a href="./">홈</a>
       <a href="guide.html">로또 가이드</a>
+      <a href="stats.html">당첨 통계</a>
       <a href="strategy.html">전략 설명</a>
+      <a href="faq.html">자주 묻는 질문</a>
+      <a href="about.html">소개 · 문의</a>
       <a href="privacy.html">개인정보처리방침</a>
     </nav>
   </footer>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bimbim159-sketch.github.io/sitemap.xml

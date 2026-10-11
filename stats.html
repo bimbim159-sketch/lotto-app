@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="로또 6/45 1~1245회(2002-12-07~2026-10-10) 전체 당첨 번호를 분석한 통계 — 번호별 출현 횟수, 홀짝·고저·합계 분포, 연속 번호, 보너스 번호, 최근 핫넘버와 장기 미출수까지" />
+  <title>로또 당첨 번호 통계 분석 — 1~1245회 전체 데이터 | 로또 번호 추천</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://bimbim159-sketch.github.io/stats.html" />
+  <link rel="stylesheet" href="style.css" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2843757027982749"
+    crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="app-header">
+    <h1>📊 로또 당첨 번호 통계</h1>
+    <p class="subtitle">1~1245회 전체 데이터로 본 번호 분포</p>
+  </header>
+
+  <main class="article">
+    <p class="updated-note">
+      분석 대상: <strong>제1회(2002-12-07) ~ 제1245회(2026-10-10)</strong>,
+      총 <strong>1245회차</strong>의 실제 당첨 번호. 회차가 쌓이면 수치는 갱신됩니다.
+    </p>
+
+    <section class="card">
+      <h2>먼저 알아둘 점</h2>
+      <p>
+        아래 통계는 지금까지 <strong>실제로 나온 결과를 뒤돌아본 기록</strong>일 뿐,
+        다음 회차를 예측하지 않습니다. 모든 번호와 조합의 당첨 확률은 수학적으로 완전히
+        동일하며, 과거에 많이 나왔다고 앞으로 더 나오거나 덜 나오지 않습니다(공은 기억이
+        없습니다). 그럼에도 전체 분포를 보면, 역대 당첨 조합이 어떤 범위에 몰려 있었는지
+        감을 잡을 수 있어 <a href="strategy.html">필터 전략</a>의 근거를 이해하는 데
+        도움이 됩니다.
+      </p>
+      <p>
+        참고로 1245회차 동안 한 번호가 나올 것으로 기대되는 평균 횟수는
+        <strong>약 166.0회</strong>(1245×6÷45)입니다. 실제 출현 횟수가 이보다
+        많거나 적은 것은 대부분 <strong>우연에 의한 편차</strong>입니다.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>가장 많이 나온 번호 TOP 10</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>번호</th><th>출현</th><th>상대 빈도</th></tr></thead>
+          <tbody>
+<tr><td><span class="nball c4">34</span></td><td>187회</td><td><div class="stat-bar"><div class="stat-fill" style="width:100.0%"></div></div></td></tr>
+<tr><td><span class="nball c2">13</span></td><td>184회</td><td><div class="stat-bar"><div class="stat-fill" style="width:98.4%"></div></div></td></tr>
+<tr><td><span class="nball c3">27</span></td><td>181회</td><td><div class="stat-bar"><div class="stat-fill" style="width:96.8%"></div></div></td></tr>
+<tr><td><span class="nball c2">12</span></td><td>180회</td><td><div class="stat-bar"><div class="stat-fill" style="width:96.3%"></div></div></td></tr>
+<tr><td><span class="nball c2">18</span></td><td>180회</td><td><div class="stat-bar"><div class="stat-fill" style="width:96.3%"></div></div></td></tr>
+<tr><td><span class="nball c4">33</span></td><td>175회</td><td><div class="stat-bar"><div class="stat-fill" style="width:93.6%"></div></div></td></tr>
+<tr><td><span class="nball c5">45</span></td><td>175회</td><td><div class="stat-bar"><div class="stat-fill" style="width:93.6%"></div></div></td></tr>
+<tr><td><span class="nball c4">37</span></td><td>174회</td><td><div class="stat-bar"><div class="stat-fill" style="width:93.0%"></div></div></td></tr>
+<tr><td><span class="nball c4">38</span></td><td>174회</td><td><div class="stat-bar"><div class="stat-fill" style="width:93.0%"></div></div></td></tr>
+<tr><td><span class="nball c4">40</span></td><td>174회</td><td><div class="stat-bar"><div class="stat-fill" style="width:93.0%"></div></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        1위는 <strong>34번(187회)</strong>입니다. 다만 1위와
+        10위의 차이도 기대 평균(약 166.0회) 주변의 작은 편차 범위 안에 있습니다.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>가장 적게 나온 번호 TOP 10</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>번호</th><th>출현</th><th>상대 빈도</th></tr></thead>
+          <tbody>
+<tr><td><span class="nball c1">9</span></td><td>137회</td><td><div class="stat-bar"><div class="stat-fill" style="width:100.0%"></div></div></td></tr>
+<tr><td><span class="nball c3">22</span></td><td>146회</td><td><div class="stat-bar"><div class="stat-fill" style="width:106.6%"></div></div></td></tr>
+<tr><td><span class="nball c4">32</span></td><td>147회</td><td><div class="stat-bar"><div class="stat-fill" style="width:107.3%"></div></div></td></tr>
+<tr><td><span class="nball c3">23</span></td><td>149회</td><td><div class="stat-bar"><div class="stat-fill" style="width:108.8%"></div></div></td></tr>
+<tr><td><span class="nball c5">41</span></td><td>151회</td><td><div class="stat-bar"><div class="stat-fill" style="width:110.2%"></div></div></td></tr>
+<tr><td><span class="nball c3">25</span></td><td>154회</td><td><div class="stat-bar"><div class="stat-fill" style="width:112.4%"></div></div></td></tr>
+<tr><td><span class="nball c1">5</span></td><td>154회</td><td><div class="stat-bar"><div class="stat-fill" style="width:112.4%"></div></div></td></tr>
+<tr><td><span class="nball c3">29</span></td><td>156회</td><td><div class="stat-bar"><div class="stat-fill" style="width:113.9%"></div></div></td></tr>
+<tr><td><span class="nball c1">2</span></td><td>157회</td><td><div class="stat-bar"><div class="stat-fill" style="width:114.6%"></div></div></td></tr>
+<tr><td><span class="nball c3">30</span></td><td>158회</td><td><div class="stat-bar"><div class="stat-fill" style="width:115.3%"></div></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        가장 적게 나온 번호는 <strong>9번(137회)</strong>입니다.
+        "덜 나왔으니 이제 나올 차례"라는 생각은 <strong>도박사의 오류</strong>로, 통계적
+        근거가 없습니다.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>홀수·짝수 분포</h2>
+      <p>6개 번호 중 홀수가 몇 개였는지의 비율입니다.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>홀:짝</th><th>횟수</th><th>비율</th><th></th></tr></thead>
+          <tbody>
+<tr><td>홀 0 : 짝 6</td><td>17회</td><td>1.4%</td><td><div class="stat-bar"><div class="stat-fill" style="width:4.2%"></div></div></td></tr>
+<tr><td>홀 1 : 짝 5</td><td>83회</td><td>6.7%</td><td><div class="stat-bar"><div class="stat-fill" style="width:20.1%"></div></div></td></tr>
+<tr><td>홀 2 : 짝 4</td><td>283회</td><td>22.7%</td><td><div class="stat-bar"><div class="stat-fill" style="width:68.2%"></div></div></td></tr>
+<tr><td>홀 3 : 짝 3</td><td>414회</td><td>33.3%</td><td><div class="stat-bar"><div class="stat-fill" style="width:100.0%"></div></div></td></tr>
+<tr><td>홀 4 : 짝 2</td><td>330회</td><td>26.5%</td><td><div class="stat-bar"><div class="stat-fill" style="width:79.6%"></div></div></td></tr>
+<tr><td>홀 5 : 짝 1</td><td>99회</td><td>8.0%</td><td><div class="stat-bar"><div class="stat-fill" style="width:24.0%"></div></div></td></tr>
+<tr><td>홀 6 : 짝 0</td><td>19회</td><td>1.5%</td><td><div class="stat-bar"><div class="stat-fill" style="width:4.5%"></div></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        홀수 3개(홀3:짝3)가 <strong>33.3%</strong>로 가장 흔하고,
+        모두 홀수이거나 모두 짝수인 경우는 합쳐도 매우 드뭅니다. 이 앱의
+        <a href="strategy.html">홀짝 필터</a>가 홀수 2~4개 조합만 남기는 이유입니다.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>저구간·고구간 분포</h2>
+      <p>6개 번호 중 저구간(1~22)에 속한 개수의 비율입니다.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>저:고</th><th>횟수</th><th>비율</th><th></th></tr></thead>
+          <tbody>
+<tr><td>저 0 : 고 6</td><td>17회</td><td>1.4%</td><td><div class="stat-bar"><div class="stat-fill" style="width:4.2%"></div></div></td></tr>
+<tr><td>저 1 : 고 5</td><td>113회</td><td>9.1%</td><td><div class="stat-bar"><div class="stat-fill" style="width:27.6%"></div></div></td></tr>
+<tr><td>저 2 : 고 4</td><td>312회</td><td>25.1%</td><td><div class="stat-bar"><div class="stat-fill" style="width:76.1%"></div></div></td></tr>
+<tr><td>저 3 : 고 3</td><td>411회</td><td>33.0%</td><td><div class="stat-bar"><div class="stat-fill" style="width:100.0%"></div></div></td></tr>
+<tr><td>저 4 : 고 2</td><td>282회</td><td>22.7%</td><td><div class="stat-bar"><div class="stat-fill" style="width:68.8%"></div></div></td></tr>
+<tr><td>저 5 : 고 1</td><td>94회</td><td>7.6%</td><td><div class="stat-bar"><div class="stat-fill" style="width:23.0%"></div></div></td></tr>
+<tr><td>저 6 : 고 0</td><td>16회</td><td>1.3%</td><td><div class="stat-bar"><div class="stat-fill" style="width:3.9%"></div></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>저구간 3개(저3:고3)가 가장 흔하며, 번호가 한쪽 구간에 쏠린 조합은 드뭅니다.</p>
+    </section>
+
+    <section class="card">
+      <h2>6개 번호 합계 분포</h2>
+      <p>
+        당첨된 6개 번호의 합은 평균 <strong>약 138.3</strong>이며,
+        역대 최소 <strong>48</strong> · 최대 <strong>238</strong> 사이에
+        분포합니다. 종 모양으로 가운데에 몰려 있습니다.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>합계 구간</th><th>횟수</th><th>비율</th><th></th></tr></thead>
+          <tbody>
+<tr><td>40~49</td><td>1회</td><td>0.1%</td><td><div class="stat-bar"><div class="stat-fill" style="width:0.7%"></div></div></td></tr>
+<tr><td>50~59</td><td>4회</td><td>0.3%</td><td><div class="stat-bar"><div class="stat-fill" style="width:2.2%"></div></div></td></tr>
+<tr><td>60~69</td><td>8회</td><td>0.6%</td><td><div class="stat-bar"><div class="stat-fill" style="width:4.4%"></div></div></td></tr>
+<tr><td>70~79</td><td>24회</td><td>1.9%</td><td><div class="stat-bar"><div class="stat-fill" style="width:13.9%"></div></div></td></tr>
+<tr><td>80~89</td><td>35회</td><td>2.8%</td><td><div class="stat-bar"><div class="stat-fill" style="width:20.4%"></div></div></td></tr>
+<tr><td>90~99</td><td>66회</td><td>5.3%</td><td><div class="stat-bar"><div class="stat-fill" style="width:38.7%"></div></div></td></tr>
+<tr><td>100~109</td><td>80회</td><td>6.4%</td><td><div class="stat-bar"><div class="stat-fill" style="width:46.7%"></div></div></td></tr>
+<tr><td>110~119</td><td>122회</td><td>9.8%</td><td><div class="stat-bar"><div class="stat-fill" style="width:71.5%"></div></div></td></tr>
+<tr><td>120~129</td><td>143회</td><td>11.5%</td><td><div class="stat-bar"><div class="stat-fill" style="width:83.9%"></div></div></td></tr>
+<tr><td>130~139</td><td>170회</td><td>13.7%</td><td><div class="stat-bar"><div class="stat-fill" style="width:100.0%"></div></div></td></tr>
+<tr><td>140~149</td><td>149회</td><td>12.0%</td><td><div class="stat-bar"><div class="stat-fill" style="width:87.6%"></div></div></td></tr>
+<tr><td>150~159</td><td>119회</td><td>9.6%</td><td><div class="stat-bar"><div class="stat-fill" style="width:70.1%"></div></div></td></tr>
+<tr><td>160~169</td><td>124회</td><td>10.0%</td><td><div class="stat-bar"><div class="stat-fill" style="width:73.0%"></div></div></td></tr>
+<tr><td>170~179</td><td>90회</td><td>7.2%</td><td><div class="stat-bar"><div class="stat-fill" style="width:52.6%"></div></div></td></tr>
+<tr><td>180~189</td><td>50회</td><td>4.0%</td><td><div class="stat-bar"><div class="stat-fill" style="width:29.2%"></div></div></td></tr>
+<tr><td>190~199</td><td>34회</td><td>2.7%</td><td><div class="stat-bar"><div class="stat-fill" style="width:19.7%"></div></div></td></tr>
+<tr><td>200~209</td><td>16회</td><td>1.3%</td><td><div class="stat-bar"><div class="stat-fill" style="width:9.5%"></div></div></td></tr>
+<tr><td>210~219</td><td>6회</td><td>0.5%</td><td><div class="stat-bar"><div class="stat-fill" style="width:3.6%"></div></div></td></tr>
+<tr><td>220~229</td><td>3회</td><td>0.2%</td><td><div class="stat-bar"><div class="stat-fill" style="width:1.5%"></div></div></td></tr>
+<tr><td>230~239</td><td>1회</td><td>0.1%</td><td><div class="stat-bar"><div class="stat-fill" style="width:0.7%"></div></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        이 앱의 <a href="strategy.html">총합 필터</a>는 100~175 구간만 남기는데, 위 분포에서
+        역대 당첨의 대부분이 이 구간에 모여 있음을 확인할 수 있습니다.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>연속 번호 출현</h2>
+      <p>
+        전체 1245회 중 <strong>51.7%</strong>의 회차에서 연속된 번호
+        (예: 14-15)가 최소 한 쌍 나왔습니다. 즉 연속 번호가 섞이는 것은 오히려 흔한
+        일이며, 다만 <strong>3연속 이상</strong>은 드물어 이 앱은 2연속까지만 허용합니다.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>보너스 번호에서 자주 나온 번호 TOP 5</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>번호</th><th>출현</th><th>상대 빈도</th></tr></thead>
+          <tbody>
+<tr><td><span class="nball c1">2</span></td><td>36회</td><td><div class="stat-bar"><div class="stat-fill" style="width:100.0%"></div></div></td></tr>
+<tr><td><span class="nball c1">4</span></td><td>35회</td><td><div class="stat-bar"><div class="stat-fill" style="width:97.2%"></div></div></td></tr>
+<tr><td><span class="nball c5">43</span></td><td>35회</td><td><div class="stat-bar"><div class="stat-fill" style="width:97.2%"></div></div></td></tr>
+<tr><td><span class="nball c1">6</span></td><td>34회</td><td><div class="stat-bar"><div class="stat-fill" style="width:94.4%"></div></div></td></tr>
+<tr><td><span class="nball c4">32</span></td><td>34회</td><td><div class="stat-bar"><div class="stat-fill" style="width:94.4%"></div></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>보너스 번호 역시 특정 번호가 유리하다는 근거는 없고, 참고용 분포입니다.</p>
+    </section>
+
+    <section class="card">
+      <h2>최근 흐름 (제1245회 기준)</h2>
+      <p><strong>최근 52주 핫넘버</strong> — 지난 1년간 가장 자주 나온 번호입니다.</p>
+      <div class="nball-row">
+        <span class="nball c2">13</span> <span class="nball c2">15</span> <span class="nball c4">31</span> <span class="nball c4">38</span> <span class="nball c3">27</span> <span class="nball c1">1</span> <span class="nball c2">18</span> <span class="nball c3">24</span>
+      </div>
+      <p><strong>장기 미출수</strong> — 가장 오래 나오지 않은 번호입니다(괄호는 미출 주 수).</p>
+      <div class="nball-row">
+        <span class="nball c3">27</span><small style="color:#9aa1ab;font-size:0.72rem;">(21주)</small> &nbsp; <span class="nball c5">45</span><small style="color:#9aa1ab;font-size:0.72rem;">(21주)</small> &nbsp; <span class="nball c2">17</span><small style="color:#9aa1ab;font-size:0.72rem;">(19주)</small> &nbsp; <span class="nball c3">30</span><small style="color:#9aa1ab;font-size:0.72rem;">(17주)</small> &nbsp; <span class="nball c1">3</span><small style="color:#9aa1ab;font-size:0.72rem;">(15주)</small> &nbsp; <span class="nball c1">8</span><small style="color:#9aa1ab;font-size:0.72rem;">(15주)</small> &nbsp; <span class="nball c2">14</span><small style="color:#9aa1ab;font-size:0.72rem;">(14주)</small> &nbsp; <span class="nball c4">35</span><small style="color:#9aa1ab;font-size:0.72rem;">(11주)</small>
+      </div>
+      <p>
+        이 수치는 회차가 지날수록 바뀝니다. 실시간 분석과 번호 추천은
+        <a href="./">번호 추천 도구</a>에서 최신 데이터로 확인하세요.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>정리</h2>
+      <p>
+        통계는 "과거 당첨들이 어떤 모습이었는지"를 알려줄 뿐 미래를 바꾸지 못합니다.
+        이 사이트의 도구는 이 분포를 근거로 <strong>역대 당첨의 대부분이 속한 영역</strong>만
+        남기고, 사람들이 잘 안 고르는 조합을 섞어 <strong>당첨 시 나눠 갖지 않을 확률</strong>을
+        높이는 데 초점을 둡니다. 원리는 <a href="strategy.html">전략 설명</a>에서,
+        규칙과 세금은 <a href="guide.html">로또 가이드</a>에서 확인하세요.
+      </p>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>통계는 공개된 당첨 이력 데이터를 집계한 것이며, 당첨을 예측하거나 보장하지 않습니다.</p>
+    <nav class="site-nav">
+      <a href="./">홈</a>
+      <a href="guide.html">로또 가이드</a>
+      <a href="stats.html">당첨 통계</a>
+      <a href="strategy.html">전략 설명</a>
+      <a href="faq.html">자주 묻는 질문</a>
+      <a href="about.html">소개 · 문의</a>
+      <a href="privacy.html">개인정보처리방침</a>
+    </nav>
+  </footer>
+</body>
+</html>
